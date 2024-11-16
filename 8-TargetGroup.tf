@@ -49,4 +49,3 @@ resource "aws_lb_target_group" "app2_tg" {
     Project = "Web Service"
   }
 }
-

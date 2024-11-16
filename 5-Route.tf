@@ -1,5 +1,5 @@
 resource "aws_route_table" "private" {
-  vpc_id = aws_vpc.app1.id
+  vpc_id = aws_vpc.multi-app1.id
 
   route = [
     {
@@ -25,7 +25,7 @@ resource "aws_route_table" "private" {
 }
 
 resource "aws_route_table" "public" {
-  vpc_id = aws_vpc.app1.id
+  vpc_id = aws_vpc.multi-app1.id
 
   route = [
     {
@@ -50,34 +50,34 @@ resource "aws_route_table" "public" {
   }
 }
 
-resource "aws_route_table_association" "private-eu-west-1a" {
-  subnet_id      = aws_subnet.private-eu-west-1a.id
+resource "aws_route_table_association" "private-us-east-2a" {
+  subnet_id      = aws_subnet.private-us-east-2a.id
   route_table_id = aws_route_table.private.id
 }
 
-resource "aws_route_table_association" "private-eu-west-1b" {
-  subnet_id      = aws_subnet.private-eu-west-1b.id
+resource "aws_route_table_association" "private-us-east-2b" {
+  subnet_id      = aws_subnet.private-us-east-2b.id
   route_table_id = aws_route_table.private.id
 }
-resource "aws_route_table_association" "private-eu-west-1c" {
-  subnet_id      = aws_subnet.private-eu-west-1c.id
+resource "aws_route_table_association" "private-us-east-2c" {
+  subnet_id      = aws_subnet.private-us-east-2c.id
   route_table_id = aws_route_table.private.id
 }
 
 
 #public
 
-resource "aws_route_table_association" "public-eu-west-1a" {
-  subnet_id      = aws_subnet.public-eu-west-1a.id
+resource "aws_route_table_association" "public-us-east-2a" {
+  subnet_id      = aws_subnet.public-us-east-2a.id
   route_table_id = aws_route_table.public.id
 }
 
-resource "aws_route_table_association" "public-eu-west-1b" {
-  subnet_id      = aws_subnet.public-eu-west-1b.id
+resource "aws_route_table_association" "public-us-east-2b" {
+  subnet_id      = aws_subnet.public-us-east-2b.id
   route_table_id = aws_route_table.public.id
 }
 
-resource "aws_route_table_association" "public-eu-west-1c" {
-  subnet_id      = aws_subnet.public-eu-west-1c.id
+resource "aws_route_table_association" "public-us-east-2c" {
+  subnet_id      = aws_subnet.public-us-east-2c.id
   route_table_id = aws_route_table.public.id
 }
